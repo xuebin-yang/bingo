@@ -1,0 +1,625 @@
+/* about-me 整个页面的布局 */
+.about-me-container {
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */
+}
+
+/* part1:头像和工作信息布局 */
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 使头像和信息整体居中 */
+  margin-bottom: 3rem;
+  margin-right: 15%;
+  gap: 200px; /* 头像和文字区域之间的间距 */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0; /* 防止 flex 项压缩 */
+}
+
+.avatar-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 3rem; /* 保持头像与信息的间距为 3rem */
+}
+
+.name {
+  font-size: 4rem; /* 姓名字体大小 */
+  font-weight: bold;
+  margin: 2.9px;
+}
+
+.contact{
+  margin: 0.5rem ;
+  font-size: 1.5rem;
+  white-space: nowrap; /* 防止文本换行 */
+  width: 100%;
+  min-width: fit-content; /* 确保内容宽度足够 */
+}
+
+.contact i{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  color: rgb(164, 4, 192);
+}
+
+.occupation{
+  margin: 0.5rem ;
+  font-size: 1.5rem;
+  white-space: nowrap; /* 防止文本换行 */
+  width: 100%;
+  min-width: fit-content; /* 确保内容宽度足够 */
+}
+
+.occupation i{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  color: rgb(164, 4, 192);
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  white-space: nowrap; /* 防止社交链接换行 */
+}
+
+.social {
+  font-size: 1.5rem;
+  margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
+  color: rgb(21, 123, 0);
+}
+
+.social a:hover {
+  text-decoration: underline; /* 鼠标悬停时知乎文字显示下划线 */
+  color: red;
+}
+
+.social a {
+  text-decoration: none;
+  color: #000000; /* 默认链接颜色 */
+}
+
+.separator {
+  margin: 0 0.5rem; /* 从 1rem 减小到 0.5rem，使分隔符更紧凑 */
+  font-size: 1.3rem;
+  color: #666;
+}
+
+/* part2:个人信息布局 */
+
+.introduction{
+    margin: 0;
+    line-height: 1.5; /* 文字行高，确保换行时视觉舒适 */
+    padding-left: 0px; /* 文字左边距 */
+}
+
+.introduction p {
+    margin: 0; /* 移除默认间距 */
+}
+
+/* part3:个人动态布局 */
+
+.news-section {
+    width: 100%; /* 与下划线和欢迎区域宽度一致 */
+    margin: 0px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.news-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    margin: 0;
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+}
+
+.news-icon {
+    font-size: 24px; /* 图标大小 */
+    line-height: 1.5; /* 与文字行高一致 */
+}
+
+.news-title {
+    font-size: 20px; /* 标题字体大小 */
+    font-weight: bold; /* 标题加粗 */
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column; /* 动态内容垂直排列 */
+}
+
+.news-content p {
+    margin: 5px 0; /* 每条动态之间的间距 */
+}
+
+
+/* 定义论文内容 */
+.publication-section {
+    width: 100%; /* 与下划线、欢迎区域和动态区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.publication-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与publication-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.publication-item {
+    display: flex; /* 每篇论文内部水平布局：左侧插图，右侧信息 */
+    gap: 15px; /* 插图和信息之间的间距 */
+    margin-bottom: 15px; /* 每篇论文之间的间距 */
+    align-items: center; /* 插图和信息顶部对齐 */
+}
+
+.publication-image {
+    width: 200px; /* 插图宽度 */
+    height: 150px; /* 插图高度 */
+    object-fit: contain; /* 确保图片适应容器 */
+}
+
+.publication-info {
+    display: flex;
+    flex-direction: column; /* 论文名称、刊物、作者和链接垂直排列 */
+}
+
+.publication-name {
+    font-size: 18px; /* 论文名称字体大小 */
+    font-weight: bold; /* 论文名称加粗 */
+    margin-bottom: 5px; /* 名称与刊物之间的间距 */
+}
+
+.publication-venue {
+    font-size: 14px; /* 刊物字体较小 */
+    margin-bottom: 5px; /* 刊物与作者之间的间距 */
+}
+
+.publication-authors {
+    font-size: 14px; /* 作者字体较小 */
+    font-style: italic; /* 斜体 */
+    margin-bottom: 5px; /* 作者与链接之间的间距 */
+}
+
+.publication-links {
+    display: flex; /* 链接水平排列 */
+    align-items: center; /* 垂直居中 */
+    gap: 1px; /* 链接和分隔符之间的间距 */
+}
+
+.publication-links a {
+    color: #0066cc; /* 链接颜色 */
+    text-decoration: none; /* 移除默认下划线 */
+}
+
+.publication-links a:hover {
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+.publication-links .separator {
+    color: black; /* 分隔符颜色 */
+}
+
+
+/* 定义个人项目内容 */
+.project-section {
+    width: 100%; /* 与下划线、欢迎区域、动态区域和出版物区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.project-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与project-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.project-item {
+    display: flex; /* 每个项目内部水平布局：左侧插图，右侧信息 */
+    gap: 50px; /* 插图和信息之间的间距 */
+    margin-bottom: 15px; /* 每个项目之间的间距 */
+    align-items: center; /* 插图和信息顶部对齐 */
+}
+
+.project-image-link {
+    display: block; /* 使图片链接为块级元素 */
+}
+
+.project-image {
+    width: 190px; /* 插图宽度 */
+    height: 150px; /* 插图高度 */
+    object-fit: contain; /* 确保图片适应容器 */
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column; /* 项目名称和时间垂直排列 */
+}
+
+.project-name {
+    font-size: 18px; /* 项目名称字体大小 */
+    font-weight: bold; /* 项目名称加粗 */
+    margin-bottom: 5px; /* 名称与时间之间的间距 */
+    color: #0066cc; /* 链接颜色 */
+    text-decoration: none; /* 移除默认下划线 */
+}
+
+.project-name:hover {
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+.project-date {
+    font-size: 14px; /* 时间字体较小 */
+}
+
+/* 定义个人特长内容 */
+
+.skills-section {
+    width: 100%; /* 与下划线、欢迎区域、动态区域、出版物区域和项目区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.skills-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与skills-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.skills-subheader {
+    display: flex;
+    align-items: center; /* 子标题和图标水平对齐 */
+    gap: 10px; /* 图标和子标题之间的间距 */
+    margin-bottom: 10px; /* 子标题与内容之间的间距 */
+    padding-left: 34px; /* 与welcome-text、news-content等缩进一致 */
+}
+
+.skills-icon {
+    font-size: 20px; /* 子标题图标稍小 */
+    line-height: 1.5; /* 与文字行高一致 */
+    width: 20px; /* 固定图标宽度，确保缩进一致 */
+    font-family: 'Segoe UI Emoji', sans-serif; /* 确保图标显示 */
+}
+
+.skills-title {
+    font-size: 18px; /* 子标题字体稍小 */
+    font-weight: bold; /* 子标题加粗 */
+}
+
+.skills-content {
+    display: flex;
+    flex-direction: column; /* 内容垂直排列 */
+    padding-left: 34px; /* 与welcome-text、news-content等缩进一致 */
+}
+
+.skills-item {
+    margin-bottom: 10px; /* 每项之间的间距 */
+}
+
+.skills-item-title {
+    font-size: 16px; /* 项目标题字体 */
+    font-weight: bold; /* 标题加粗 */
+    margin-bottom: 5px; /* 标题与内容之间的间距 */
+}
+
+.skills-item-content {
+    font-size: 14px; /* 内容字体 */
+}
+
+.skills-note {
+    font-size: 12px; /* 备注字体较小 */
+    color: #666; /* 备注颜色稍淡 */
+}
+
+
+
+/* 移动端响应式调整 */
+@media screen and (max-width: 1500px){
+    /* about-me 整个页面的布局 */
+.about-me-container {
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  min-width: 500px; /* 最小宽度，防止在小屏幕上过分压缩 */
+}
+
+/* part1:头像和工作信息布局 */
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 使头像和信息整体居中 */
+  margin-bottom: 3rem;
+  margin-right: 15%;
+  gap: 1px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 3rem; /* 保持头像与信息的间距为 3rem */
+}
+
+.name {
+  font-size: 4rem; /* 姓名字体大小 */
+  font-weight: bold;
+  margin: 2.9px;
+}
+
+.contact{
+  margin: 0.5rem ;
+  font-size: 1.5rem;
+}
+
+.contact i{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  color: rgb(164, 4, 192);
+}
+
+.occupation{
+  margin: 0.5rem ;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.occupation i{
+  margin: 0rem ;
+  font-size: 1.5rem;
+  color: rgb(164, 4, 192);
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.social {
+  font-size: 1.5rem;
+  margin-right: 0.3rem; /* 添加小间距，确保知乎等靠近 | 符号 */
+  color: rgb(21, 123, 0);
+}
+
+.social a:hover {
+  text-decoration: underline; /* 鼠标悬停时知乎文字显示下划线 */
+  color: red;
+}
+
+.social a {
+  text-decoration: none;
+  color: #000000; /* 默认链接颜色 */
+}
+
+.separator {
+  margin: 0 0.5rem; /* 从 1rem 减小到 0.5rem，使分隔符更紧凑 */
+  font-size: 1.3rem;
+  color: #666;
+}
+
+/* part2:个人信息布局 */
+
+.introduction{
+    margin: 0;
+    line-height: 1.5; /* 文字行高，确保换行时视觉舒适 */
+    padding-left: 0px; /* 文字左边距 */
+}
+
+.introduction p {
+    margin: 0; /* 移除默认间距 */
+}
+
+/* part3:个人动态布局 */
+
+.news-section {
+    width: 100%; /* 与下划线和欢迎区域宽度一致 */
+    margin: 0px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+    font-size: small;
+}
+
+.news-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    margin: 0;
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+}
+
+.news-icon {
+    font-size: 24px; /* 图标大小 */
+    line-height: 1.5; /* 与文字行高一致 */
+}
+
+.news-title {
+    font-size: 20px; /* 标题字体大小 */
+    font-weight: bold; /* 标题加粗 */
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column; /* 动态内容垂直排列 */
+}
+
+.news-content p {
+    margin: 5px 0; /* 每条动态之间的间距 */
+}
+
+
+/* 定义论文内容 */
+.publication-section {
+    width: 100%; /* 与下划线、欢迎区域和动态区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.publication-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与publication-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.publication-item {
+    display: flex; /* 每篇论文内部水平布局：左侧插图，右侧信息 */
+    gap: 15px; /* 插图和信息之间的间距 */
+    margin-bottom: 15px; /* 每篇论文之间的间距 */
+    align-items: center; /* 插图和信息顶部对齐 */
+}
+
+.publication-image {
+    width: 150px; /* 插图宽度 */
+    height: 100px; /* 插图高度 */
+    object-fit: contain; /* 确保图片适应容器 */
+    flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+.publication-info {
+    display: flex;
+    flex-direction: column; /* 论文名称、刊物、作者和链接垂直排列 */
+}
+
+.publication-name {
+    font-size: 18px; /* 论文名称字体大小 */
+    font-weight: bold; /* 论文名称加粗 */
+    margin-bottom: 5px; /* 名称与刊物之间的间距 */
+}
+
+.publication-venue {
+    font-size: 14px; /* 刊物字体较小 */
+    margin-bottom: 5px; /* 刊物与作者之间的间距 */
+}
+
+.publication-authors {
+    font-size: 14px; /* 作者字体较小 */
+    font-style: italic; /* 斜体 */
+    margin-bottom: 5px; /* 作者与链接之间的间距 */
+}
+
+.publication-links {
+    display: flex; /* 链接水平排列 */
+    align-items: center; /* 垂直居中 */
+    gap: 1px; /* 链接和分隔符之间的间距 */
+}
+
+/* 定义个人项目内容 */
+.project-section {
+    width: 100%; /* 与下划线、欢迎区域、动态区域和出版物区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.project-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与project-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.project-item {
+    display: flex; /* 每个项目内部水平布局：左侧插图，右侧信息 */
+    gap: 50px; /* 插图和信息之间的间距 */
+    margin-bottom: 15px; /* 每个项目之间的间距 */
+    align-items: center; /* 插图和信息顶部对齐 */
+}
+
+.project-image-link {
+    display: block; /* 使图片链接为块级元素 */
+}
+
+.project-image {
+    width: 150px; /* 插图宽度 */
+    height: 100px; /* 插图高度 */
+    object-fit: contain; /* 确保图片适应容器 */
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column; /* 项目名称和时间垂直排列 */
+}
+
+.project-name {
+    font-size: 18px; /* 项目名称字体大小 */
+    font-weight: bold; /* 项目名称加粗 */
+    margin-bottom: 5px; /* 名称与时间之间的间距 */
+    color: #0066cc; /* 链接颜色 */
+    text-decoration: none; /* 移除默认下划线 */
+}
+
+.project-name:hover {
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+.project-date {
+    font-size: 14px; /* 时间字体较小 */
+}
+
+/* 定义个人特长内容 */
+
+.skills-section {
+    width: 100%; /* 与下划线、欢迎区域、动态区域、出版物区域和项目区域宽度一致 */
+    margin: 10px auto 0; /* 水平居中，与上方的下划线保持小间距 */
+    display: flex;
+    flex-direction: column; /* 垂直排列标题和内容 */
+}
+
+.skills-header {
+    display: flex;
+    align-items: center; /* 标题和图标水平对齐 */
+    gap: 10px; /* 图标和标题之间的间距 */
+    margin-bottom: 10px; /* 标题与内容之间的间距 */
+    width: 100%; /* 确保与skills-section宽度一致 */
+    box-sizing: border-box; /* 防止内边距影响宽度 */
+}
+
+.skills-subheader {
+    display: flex;
+    align-items: center; /* 子标题和图标水平对齐 */
+    gap: 10px; /* 图标和子标题之间的间距 */
+    margin-bottom: 10px; /* 子标题与内容之间的间距 */
+    padding-left: 34px; /* 与welcome-text、news-content等缩进一致 */
+}
+
+}
