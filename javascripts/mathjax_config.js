@@ -3,7 +3,8 @@ window.MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true,
-    processEnvironments: true
+    processEnvironments: true,
+    tags: 'ams'  // 开启自动编号，使用AMS样式
   },
   options: {
     skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
