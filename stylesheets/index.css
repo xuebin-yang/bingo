@@ -1,6 +1,6 @@
         .container {
             width: auto; /* 随视口宽度自适应 */
-            max-width: 1400px; /* 最大宽度，防止过宽 */
+            max-width: 700px; /* 最大宽度，防止过宽 */
             min-width: 100px; /* 最小宽度，保证可读性 */
             padding: 20px;
             box-sizing: border-box;
