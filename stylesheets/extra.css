@@ -78,7 +78,7 @@
   }
   
 .book-header{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;overflow:visible;height:50px;padding:0 8px;z-index:2;font-size:.85em;color:#7e888b;background:0 0}
-.book-header .btn{display:block;height:50px;padding:0 15px;border-bottom:none;color:#41f705;text-transform:uppercase;line-height:50px;-webkit-box-shadow:none!important;box-shadow:none!important;position:relative;font-size:14px}
+.book-header .btn{display:block;height:50px;padding:0 15px;z-index: 999;border-bottom:none;color:#41f705;text-transform:uppercase;line-height:50px;-webkit-box-shadow:none!important;box-shadow:none!important;position:relative;font-size:14px}
 
 .page-wrapper{position:relative;outline:0;}
 .page-inner{position:relative;max-width: 1500px;margin:0 auto;padding:20px 15px 40px 15px;overflow-x: auto; /* 强制水平滚动条 */
