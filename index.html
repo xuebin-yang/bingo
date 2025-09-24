@@ -27,6 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="./css/style.min.css" rel="stylesheet"><link href="stylesheets/extra.css" rel="stylesheet"><link href="stylesheets/index.css" rel="stylesheet"><link href="stylesheets/about_me.css" rel="stylesheet"><link href="stylesheets/my_posts.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css" rel="stylesheet"><link href="stylesheets/recode_life.css" rel="stylesheet"> 
 </head>
@@ -81,7 +82,11 @@
  
 
 
-<div class="container">     
+<div class="container">
+    <!-- 背景遮罩 -->
+    <div class="overlay"></div>
+    <!-- 雨滴效果 -->
+    <div class="rain-container" id="rainContainer"></div>     
     <h1 class="title">雨巷</h1>
     <div class="author">戴望舒</div> 
     <div class="poem-content">
@@ -172,6 +177,7 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="javascripts/my_posts.js"></script>
         <script src="javascripts/recode_life.js"></script>
+        <script src="javascripts/index.js"></script>
         <script src="search/main.js"></script>
         <script src="./js/gitbook.min.js"></script>
         <script src="./js/theme.min.js"></script>

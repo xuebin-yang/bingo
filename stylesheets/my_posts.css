@@ -5,7 +5,7 @@
             min-width: 900px; /* 最小宽度，防止在小屏幕上过分压缩 */        
             max-width: 1500px;
             overflow: hidden;
-            background-color: #ffffff;
+            background-color: s#ffffff;
         }
 
 /* define container */
@@ -41,7 +41,7 @@
 .blog-section {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 }
 
 .blog-item {
@@ -66,8 +66,8 @@
 }
 
 .blog-image img {
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 90%;
             object-fit: contain;
             transition: transform 0.5s ease;
         }
@@ -286,9 +286,9 @@
 
     /* AI, English, Economy Sections */
             .blog-section {
-                 display: flex;
+                display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 5px;
             }
 
             .blog-item {
@@ -300,6 +300,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eaeaea;
             align-items: flex-start;
+            gap: 10px;
             }
 
             .blog-item:hover {
@@ -317,7 +318,7 @@
 .blog-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit:scale-down;
             transition: transform 0.5s ease;
         }
 

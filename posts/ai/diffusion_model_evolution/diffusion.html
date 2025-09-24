@@ -27,6 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="../../../css/style.min.css" rel="stylesheet"><link href="../../../stylesheets/extra.css" rel="stylesheet"><link href="../../../stylesheets/index.css" rel="stylesheet"><link href="../../../stylesheets/about_me.css" rel="stylesheet"><link href="../../../stylesheets/my_posts.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css" rel="stylesheet"><link href="../../../stylesheets/recode_life.css" rel="stylesheet"> 
 </head>
@@ -82,16 +83,17 @@
 
 
 <style>
-body {font-family: "SimSun", "Times New Roman", serif;line-height: 25px}
+body {font-family: "SimSun", "Times New Roman", serif;line-height: 25px;background: rgba(255, 255, 255, 0.9);}
 </style>
 
-<h1 id="_1"><font color=000000><center>扩散模型的推导过程以及基础概率论知识</center></font></h1>
-<h1 id="_2">一、概率论基础</h1>
+<div class="main-title"> 扩散模型的推导过程以及基础概率论知识</div>
+
+<h1 id="_1">一、概率论基础</h1>
 <h2 id="1-px">1、概率 p(x)</h2>
 <p>事件A的概率是对事件A在试验中出现的可能性大小的一种度量，事件A的概率表示为 <span class="arithmatex">\(p(A)\)</span></p>
 <h2 id="2">2、概率分布</h2>
 <p>反映随机变量 <span class="arithmatex">\(X\)</span>（可能是离散型、也可能是连续型）的所有可能取值（如<span class="arithmatex">\(X=x_1,x_2,....\)</span>），将随机变量取这些值的概率一一列举出来的概率分布就是该随机变量的概率分布。对于离散型随机变量，它的概率分布可以用枚举法表示<span class="arithmatex">\(P(X=x_i)\)</span>；对于连续型随机变量，它的概率分布可以用<span class="arithmatex">\(P(X)\)</span>表示。</p>
-<p>-----------<font color=00ff00>tip:以上两个概念都是概念性的东西，并没有公式</font>---------------</p>
+<center><font color=00ff00>---tip:以上两个概念都是概念性的东西，并没有公式---</font></center>
 <h2 id="3">3、概率密度函数</h2>
 <p>设 <span class="arithmatex">\(X\)</span> 为一<strong>连续型随机变量</strong>（对于连续性随机变量，它为某一具体数值的概率为 0，只能用范围<span class="arithmatex">\([x_1, x_2]\)</span>来表示它的概率），<span class="arithmatex">\(x\)</span>为任意实数，<span class="arithmatex">\(X\)</span>的概率密度函数记为<span class="arithmatex">\(f(x)\)</span>,概率密度函数满足条件：
 （1）<span class="arithmatex">\(f(x) \ge 0\)</span>；（2）<span class="arithmatex">\(\int_{+\infty}^{-\infty}f(x)dx=1\)</span>。</p>
@@ -133,20 +135,20 @@ $$
 <p>对于一个离散变量<span class="arithmatex">\(X\)</span>（一般数据的频次是给定的）：
 <strong>均值</strong>：<span class="arithmatex">\(E(X)=\frac{\sum^{n}_{i=1}x_i}{n}\)</span>，<span class="arithmatex">\(x_i\)</span>是离散变量<span class="arithmatex">\(X\)</span>的所有取值，<span class="arithmatex">\(n\)</span>是数据的个数，这个公式表示把所有数据加起来，然后除以数据的个数，得到的就是均值。
 <strong>方差</strong>：<span class="arithmatex">\(S^2=\frac{\sum^{n}_{i=1}(x_i-E(X))^2}{n}\)</span>,这个公式表示先求出每个数据与均值的差，然后平方，再把这些平方值加起来，最后除以数据的个数，得到的就是方差。</p>
-<h3 id="_3"><font color=ffzz></h3>
+<h3 id="_2"><font color=ffzz></h3>
 <h2 id="6normal-distribution">6、正态分布（normal distribution）</font></h2>
 <p>正态分布也称高斯分布，通常记作<span class="arithmatex">\(X～N(μ ,σ^2)\)</span>，其中<span class="arithmatex">\(\mu\)</span>称为均值，<span class="arithmatex">\(\sigma^2\)</span>称为方差。正态分布的概率密度函数（说明是连续的）<span class="arithmatex">\(f(x)\)</span>符合如下式：
 $$
 f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 $$
 其中，<span class="arithmatex">\(μ = 0\)</span>,<span class="arithmatex">\(σ = 1\)</span>的正态分布被称为标准正态分布。</p>
-<h2 id="6likelihood-function"><font color=ffzz>6、似然函数likelihood function（似然）</font></h2>
+<h2 id="7likelihood-function"><font color=ffzz>7、似然函数likelihood function（似然）</font></h2>
 <p>wiki：似然函数（也叫似然）指的是一个统计模型用来解释观察到的数据的好坏情况的评判，通过计算在不同模型元素值的情况下看到某些数据的概率来比较的。换句话来讲，我们前面讲的概率密度函数<span class="arithmatex">\(f(x)\)</span>其实都是在分布固定的情况下写的（即模型的参数<span class="arithmatex">\(\theta\)</span>是固定的），按理来讲应该写成<span class="arithmatex">\(f(x|\theta)\)</span>（一般来讲，<span class="arithmatex">\(f(x|\theta)\)</span>这样的表达都会避免，而是用<span class="arithmatex">\(f(x;\theta)\)</span>或者<span class="arithmatex">\(f(x, \theta)\)</span>，这样做是为了暗示<span class="arithmatex">\(\theta\)</span>是一个固定的未知数而不是有条件的随机变量.），如果反过来，当取值<span class="arithmatex">\(x\)</span>是固定的时候，<span class="arithmatex">\(f(x|\theta)\)</span>就变成了似然函数了，为了避免歧义，一般将似然函数写成：<span class="arithmatex">\(\mathcal{L}(\theta|x)\)</span>。关于参数<span class="arithmatex">\(θ\)</span>的似然函数<span class="arithmatex">\(L(θ|x)\)</span>（在数值上）等于给定参数<span class="arithmatex">\(θ\)</span>后变量<span class="arithmatex">\(X\)</span>的概率：<span class="arithmatex">\(L(\theta|x)=P(X|x=\theta)\)</span>。似然函数在推断统计学（Statistical inference）中扮演重要角色，尤其是在参数估计方法中。在教科书中，似然常常被用作“概率”的同义词。但是在统计学中，二者有截然不同的用法。概率描述了已知参数时的随机变量的输出结果；似然则用来描述已知随机变量输出结果时，未知参数的可能取值。</p>
-<h2 id="7kl">7、KL散度</h2>
+<h2 id="8kl">8、KL散度</h2>
 <p>KL散度是信息论里面的知识点。通俗解释就是用一个分布P来表示另一个分布Q而减少的信息熵。
 <span class="arithmatex">\(KL(Q||P)\)</span>表示用分布Q来表示分布P对所减少的信息熵，<span class="arithmatex">\(KL(P||Q)\)</span>表示用分布P来表示分布Q对所减少的信息熵，所以<span class="arithmatex">\(KL(Q||P)\neq KL(P||Q)\)</span>。</p>
 <p><strong><font color=ff0000><center>----Tip: step into what truly need to learn formally, lets get started!---</center></font></strong></p>
-<h1 id="_4">二、扩散模型核心公式推导</h1>
+<h1 id="_3">二、扩散模型核心公式推导</h1>
 <h2 id="1ae">1、AE</h2>
 <p>autoencoder 的思路和原理比较简单，输入数据input_data通过encoder 压缩到特定维度，之后通过 decoder 恢复成原始维度，然后直接计算 decoder 后的数据与input_data 之间的MSE损失，以此来达到无监督提取特征的功能。（实现方式特别暴力！！！）</p>
 <h2 id="2vae">2、VAE</h2>
@@ -220,6 +222,7 @@ L_b &amp;=\int_{z}q(z|x)log\frac{P(x|z)\cdot P(z)}{q(z|x)}dz\\[0.5em]
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="../../../javascripts/my_posts.js"></script>
         <script src="../../../javascripts/recode_life.js"></script>
+        <script src="../../../javascripts/index.js"></script>
         <script src="../../../search/main.js"></script>
         <script src="../../../js/gitbook.min.js"></script>
         <script src="../../../js/theme.min.js"></script>

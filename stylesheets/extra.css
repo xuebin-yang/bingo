@@ -56,10 +56,17 @@
 
 .book-body.homepage {
     background-image: url('https://xuebin-yang.github.io/bingo/docs/img/background.jpg') !important;
+    /*background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20190722/74a15d1526614d1db347fb68d10d3a42.jpeg') !important;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    filter: brightness(1.3) contrast(0.9);
 }
 
 
@@ -110,4 +117,21 @@
 
 .font-source-serif {
             font-family: 'Source Serif Pro', serif;
+        }
+
+  
+/* 帖子效果 */
+
+/* 标题样式 */
+.main-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #000000;
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            position: relative;
+            transition: all 0.3s ease;
         }
