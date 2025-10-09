@@ -83,53 +83,90 @@
 
 
 <style>
-body {font-family: "SimSun", "Times New Roman", serif;line-height: 25px;background: rgba(255, 255, 255, 20);}
+body {font-family: "SimSun", "Times New Roman", serif;font-size: 16px;line-height: 25px;background: rgba(255, 255, 255, 20);}
 </style>
 
-<div class="main-title"> 英语语法精简框架（Semi-finished version）</div>
+<div class="main-title"> A simple english grammar frame（Semi-finished version）</div>
 
-<p>Prologue：学英语就像训练AI模型，如果用这套理论来学英语的话，那就是把自己的脑子抽象成GPU了，每天找一个固定领域的音频不停的做有监督训练（还不到无监督学习的程度），后面再fine-tune到其他领域。</p>
-<h1 id="grammar-overview">Grammar Overview</h1>
-<p>I、Morphology
-主要是 9 类词性。</p>
-<p>（1）名词（noun）
-动名词也属于名词。</p>
-<p>que：怎么区分现在分词和动名词？
-ans：虽然动名词和现在分词都是“动词+ing”形式，形式一样，且都属于非谓语动词（不能做谓语），很难区分（比如swimming，又可以是动词swim的现在分词，也可以是看做是它的动名词）。但是有个本质的区别，动名词是做名词用的，所以具有名词的所有特征，可以做主语、宾语、表语（noun.补语）、补语。而现在分词本质是个动词，可以做形容词和副词，所以可以做定语、状语、表语（adj.表语）、补语。在动名词和现在分词相同的动词下（比如swim，动名词和现在分词一样，可以合并起来记忆，即除了不能做谓语外其他基本都能做。但是有一些单词比如cut、put、read、cost、hit等现在分词为其原型，动名词为ing形式的单词就要分开讨论了。）
-以下是几个例子：
-① Whistling to himself， he walked down the road。（Whistling 典型的现在分词做状语，修饰后面的不定式，构成一个分词短语ps:More examples will updata soon.</p>
-<p>（2）代词（pronoun）
-形容词性物主代词（限定词的一类，类似于形容词的用法）：your、her、his、its、their
-名词性物主代词：yours、mine、his、hers、its、ours、theirs
-人称代词：I、you、it、he、she
-反身代词：myself、yourself、himself
-指示代词：this、that、these、those
-疑问代词：who、what、which、where
-不定代词：some、any、none
-相互代词：each other（each other并不是两个代词的组合）、one another
-连接代词（引导名词性从句）：how、when、where
-关系代词（引导定语从句）：that、which、who、whom、whose、as</p>
-<p>（3）冠词（article）
-定冠词：the
-不定冠词：a、an</p>
-<p>（4）数量词（numeral）
-one、two、three、four…</p>
-<p>（5）介词（prepositon）
-in、on、up、upon、at、with、toward、around、as…
-介词后面只能接名词结构
-tips：这里的名词是指可以充当名词的成分，包括名词（in the room）、代词（with her）、动名词（for fairness、for the sake of fairness、for the fair sake由于fair做名词时没有公平的意思，只有形容词公平的的意思，所以for fair是错误的）。</p>
-<p>（6）连词（conjunction）
-though、although、and、or、but等</p>
-<p>（7）动词（verb）
-（7.1）谓语动词（predicte verb）
-（7.1.1）情态动词（Modal verb）
-表示语气的单词，本身有一定的词义。但是情态动词不能独立作谓语，只能和动词原形一起构成谓语。情态动词用在行为动词前，表示说话人对这一动作或状态的看法或主观设想。 行为动词表示的是可以通过行为来表达的动作(如写，读，跑)，而情态动词只是表达的一种想法(如能，也许，敢)。英文中常见的有:<strong> can (could), may (might), must, need, ought to, dare (dared), shall (should), will (would)</strong>。
-关于could、would、should这些词的用法可以另起一篇文章介绍，因为实在太过灵活，并不单单是can、may、will的过去式那么简单。</p>
-<p>（7.1.1.1）助动词
-助动词用来构成时态和语态，也可构成疑问句和否定句，构成否定句时与否定副词not连用。具有语法意义，但除情态助动词外没有词汇意义，不可单独作谓语。它没有对应的汉译，必然和实义动词一起组成谓语动词。
-最常用的助动词有:be， have/has， do/does/did ， shall， should， will， would，got等。</p>
-<p>（7.1.2）时态（Tense）
-按照时间分为现在、过去、将来和过去将来，按照状态可以分为一般式、进行式、完成式、完成进行式，总共可以组合出16中时态。</p>
+<p><font color=0000ff>Prologue: Seeing the progress of larning english as training AI model: pre-training audio or video clips on your brain iteration by iteration, and then generalize this model to some downstream tasks like singing or talking to improve the robust of the pre-trained model. And grammar frame can be compared to Pytorch or Tensorflow.</font></p>
+<h1 id="imorphology">I、Morphology</h1>
+<h2 id="1noun">（1）名词（noun）</h2>
+<p>名词的概念没必要解释。需要说明的是，动名词也属于名词。</p>
+<p style="background-color: #bee2c6ff";><font color= #332111ff>
+<strong>Q：怎么区分现在分词和动名词?</strong><br> 
+
+A：动名词(gerund)在句中可以做主语(subject)、宾语(object)、补语(complement)，它可以被名词或者代词替换，而且一般跟随在介词之后构成介宾结构或者一些动词(如 enjoy、avoid、suggest)之后。例如：<br>
+1️⃣ Swimming is my favorite hobby. (Swimming is the subject, acting as a noun.)<br>
+2️⃣ I enjoy reading books. (Reading is the object of the verb "enjoy.")<br>
+3️⃣ She is good at dancing. (Dancing is the object of the preposition "at.")<br>
+
+现在分词(present participle)在句中可以作为形容词，用来修饰名词；还可以构成现在时态，表示一种ongoing的动作，它不可以被名词或者代词替换。例如：<br>
+1️⃣ The running water is cold. (Running describes the noun "water," acting as an adjective.)<br>
+2️⃣ She is singing beautifully. (Singing is part of the verb phrase "is singing," indicating ongoing action.)<br>
+3️⃣ The crying baby woke everyone up. (Crying describes the noun "baby.") 
+但是有一些单词比如come、cut、put、read、cost、hit等现在分词为其原型，动名词为ing形式的单词就要分开讨论了。）</font></p>
+
+<h2 id="2pronoun">（2）代词（pronoun）</h2>
+<ul>
+<li>形容词性物主代词（限定词的一类，类似于形容词的用法）：your、her、his、its、their<br></li>
+<li>名词性物主代词：yours、mine、his、hers、its、ours、theirs<br></li>
+<li>人称代词：I、you、it、he、she<br></li>
+<li>反身代词：myself、yourself、himself<br></li>
+<li>指示代词：this、that、these、those<br></li>
+<li>疑问代词：who、what、which、where<br></li>
+<li>不定代词：some、any、none<br></li>
+<li>相互代词：each other（each other并不是两个代词的组合）、one another<br></li>
+<li>连接代词（引导名词性从句）：how、when、where<br></li>
+<li>关系代词（引导定语从句）：that、which、who、whom、whose、as<br></li>
+</ul>
+<h2 id="3article">（3）冠词（article）</h2>
+<ul>
+<li>定冠词：the</li>
+<li>不定冠词：a、an</li>
+</ul>
+<h2 id="4numeral">（4）数量词（numeral）</h2>
+<p>one、two、three、four…</p>
+<h2 id="5prepositon"><font color= #ff0000>（5）介词（prepositon）</font></h2>
+<p>介词是英语中非常难以用常规去理解的词，经常需要结合上下文来理解。常见的介词有：in、on、up、upon、at、with、toward、around、as…。介词后面只能接名词结构。<br></p>
+<p style="background-color: #bee2c6ff";>Tips：这里的名词是指可以充当名词的成分，包括名词（如：for fairness, for the sake of fairness, for the fair sake）、代词（with her）、动名词。<br>ps: 由于fair做名词时没有公平的意思，只有做形容词才有公平的意思，所以 for fair 是错误的</p>
+
+<h2 id="6conjunction">（6）连词（conjunction）</h2>
+<p>连词更多的是死记硬背意思和用法。常见的连词有：though、although、and、or、but、either、neither等</p>
+<h2 id="7verb">（7）动词（verb）</h2>
+<h3 id="71-predicte-verb">7.1 谓语动词（predicte verb）</h3>
+<p>谓语动词没什么好解释的，词典里带 vi 和 vt 属性的词都可以做谓语动词。</p>
+<h3 id="72-modal-verb">7.2 情态动词（Modal verb）</h3>
+<p>表示语气的单词，本身有一定的词义，它表示的是情感的程度、可能性的大小等。但是情态动词不能独立作谓语，只能和动词原形一起构成谓语（所以也有人将情态动词称为情态助动词）。情态动词用在行为动词前，表示说话人对这一动作或状态的看法或主观设想。 行为动词表示的是可以通过行为来表达的动作(如写，读，跑)，而情态动词只是表达的一种想法(如能，也许，敢)。英文中常见的有:<strong> can (could)、 may (might)、 must、need、 ought to、are (dared)、 shall (should)、 will (would)</strong>。</p>
+<p style="background-color: #bee2c6ff";>Tips：<br>
+1️⃣ 情态动词的使用比较难掌握，而且在阅读过程中还会出现缩写的情况，还需要加以分别，如看到缩写时如 I'd 可能代表的是 I would、 I should、I had, 具体要视上下文判断, 但是不会是 I could， 因为 could 不会简写。<br>
+2️⃣ could、might、should、would 不只是简单的分别是 can、may、shall、will 的过去式那么简单，他们各自也有各自的意思和词性，我会在另一篇文章中再详细解释。</p>
+
+<h3 id="73">7.3 助动词</h3>
+<p>助动词用来构成时态和语态，也可构成疑问句和否定句，构成否定句时与否定副词not连用。具有语法意义，不可单独作谓语。它没有对应的汉译，必须和实义动词一起组成谓语动词。
+最常用的助动词有:be、have/has、do/does/did、got等。</p>
+<h1 id="ii-tense">II、 时态（Tense）</h1>
+<p>按照时间分为现在、过去、将来和过去将来，按照状态可以分为一般式、进行式、完成式、完成进行式，总共可以组合出16种时态。</p>
+<div align="center">
+<img src="./tensor.png" alt="时态图" width="900">
+<br>
+Fig. 16种时态图
+</div>
+<h2 id="1">1、一般时态</h2>
+<p><font color=ff0000>（1）一般现在时（do）：除了表示经常发生的动作外，一般现在时还可以用来表示客观事实</font>。例如：<br>
+① Light travels more quickly than sound.<br>
+② Light doesn't travel more quickly than sound.<br>
+<font color=ff0000>（2）一般过去时（did）：表示站在过去的时间点所发生的动作</font>。例如：<br>
+① I used the pen before.<br>
+② I didn't use the pen before.<br>
+③ Did I use the pen before?<br>
+<font color=ff0000>（3）一般将来时（will do）：表示从现在的时间点看某个将来的时间点会发生的动作</font>。例如：<br>
+① She will live in HeFei.<br>
+② She won't live in HeFei.<br>
+③ Will she live in HeFei?<br>
+<font color=ff0000>（4）一般过去将来时（would do）：从过去（past）的某个时间点（相对于现在的时间点来说）看将来要发生的动作</font>。例如：<br>
+① She told me that she would go back to HeFei.<br>
+② She told me that she wouldn't go back to HeFei.<br>
+③ Did she tell me that she would go back to HeFei?<br></p>
 <p><strong>to be continued....</strong></p>
 
 

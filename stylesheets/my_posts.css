@@ -265,6 +265,34 @@
 .video-title:hover {
             color: #6e8efb;
 }
+
+.bilibili-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://s1.aigei.com/src/img/png/ca/ca068f4865cb43158344b81d0ba21b8d.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:L3eEBqBu3r7EVqzJBPnOKogN2eU=");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.youtube-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/img/youtube_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
         
         
 @media (max-width: 768px) {
